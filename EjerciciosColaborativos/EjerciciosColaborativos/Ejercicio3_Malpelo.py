@@ -13,26 +13,34 @@ El programa debe:
   y cuántas hay en cada una.'''
   
 texto = input("Introduce un texto: ")
+
+# Separar el texto en palabras
 palabras = texto.split()
 
+# Inicializar el diccionario para clasificar las palabras
 resultado = {
     "empiezan_por_vocal": [],
     "terminan_en_consonante": [],
     "contienen_numero": []
 }
 
+# Definir conjuntos de caracteres para facilitar la clasificación
 vocales = "aeiouAEIOU"
 consonantes = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
 numeros = "0123456789"
 
+# Clasificar las palabras según las reglas
 for palabra in palabras:
     if palabra[0] in vocales:
         resultado["empiezan_por_vocal"].append(palabra)
+        
     if palabra[-1] in consonantes:
         resultado["terminan_en_consonante"].append(palabra)
+        
     if any(char in numeros for char in palabra):
         resultado["contienen_numero"].append(palabra)
 
+# Mostrar el informe final
 print("Informe final:")
 
 for categoria, lista in resultado.items():
